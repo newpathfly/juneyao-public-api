@@ -1,2 +1,3 @@
 # juneyao-public-api
-Provides serializable classes for Juneyao Airline public API, along with best effort validation logics.
+
+This project contains neccessary classes, enums and interfaces for de-/serialization of Juneyao Airline public API.
