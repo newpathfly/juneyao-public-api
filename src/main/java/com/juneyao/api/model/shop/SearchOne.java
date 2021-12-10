@@ -1,5 +1,6 @@
 package com.juneyao.api.model.shop;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -7,7 +8,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.juneyao.api.model.common.FlightInfoCombApi;
+import com.juneyao.api.model.common.Fare;
+import com.juneyao.api.model.common.FlightInfoComb;
 import com.juneyao.api.model.common.Segment;
 import com.juneyao.api.model.common.base.BaseRequest;
 import com.juneyao.api.model.common.base.BaseResponse;
@@ -70,8 +72,11 @@ public class SearchOne {
         @NotEmpty
         @Valid
         @Singular("flightInfoComb")
-        List<FlightInfoCombApi> flightInfoCombList;
+        List<FlightInfoComb> flightInfoCombList;
 
-        // @todo FareDic
+        @JsonProperty("FareDic")
+        @NotEmpty
+        @Valid
+        Map<String, Fare> fareDic;
     }
 }
