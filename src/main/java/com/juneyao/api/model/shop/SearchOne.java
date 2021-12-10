@@ -1,83 +1,77 @@
 package com.juneyao.api.model.shop;
 import java.util.List;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.juneyao.api.model.common.FlightInfoCombApi;
 import com.juneyao.api.model.common.Segment;
 import com.juneyao.api.model.common.base.BaseRequest;
 import com.juneyao.api.model.common.base.BaseResponse;
-import com.juneyao.api.model.common.enums.PassengerType;
-import com.juneyao.api.model.common.enums.QueryType;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.Singular;
+import lombok.experimental.SuperBuilder;
 
 public class SearchOne {
 
     private SearchOne() {
     }
 
-    @Builder
+
     @Getter
     @Setter
     @NoArgsConstructor
-    @AllArgsConstructor
+    @SuperBuilder
     public static class FlightFareRequest extends BaseRequest {
-
-        @JsonProperty("RandCode")
-        @NotBlank
-        @Size(max = 30)
-        String randCode;
-
-        @JsonProperty("IsAdvanced")
-        @NotNull
-        @Size(max = 3)
-        @Default
-        String isAdvanced = "";
-
-        @JsonProperty("QueryType")
-        QueryType queryType;
 
         @JsonProperty("SegCondList")
         @NotEmpty
+        @Valid
+        @Singular("segment")
         List<Segment> segCondList;
+
+        @JsonProperty("FareSource")
+        @NotBlank
+        String fareSource;
+    }
+
+    @Getter
+    @Setter
+    @SuperBuilder
+    public static class FlightFareResponse extends BaseResponse {
+
+        @JsonProperty("LangCode")
+        @NotBlank
+        @Size(max = 3)
+        String langCode;
+
+        @JsonProperty("InterFlag")
+        @NotBlank
+        @Size(max = 1)
+        String interFlag;
 
         @JsonProperty("ReadRedis")
         String readRedis;
+
+        @JsonProperty("QuerySearchone")
+        Boolean querySearchone;
 
         @JsonProperty("FareSource")
         @NotBlank
         String fareSource;
 
-        @JsonProperty("PassengerType")
-        PassengerType passengerType;
+        @JsonProperty("FlightInfoCombList")
+        @NotEmpty
+        @Valid
+        @Singular("flightInfoComb")
+        List<FlightInfoCombApi> flightInfoCombList;
 
-        @JsonProperty("VirtualType")
-        @NotNull
-        Boolean virtualType;
-
-        @JsonProperty("SpecialFareType")
-        String specialFareType;
-    }
-
-    @Builder
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class FlightFareResponse extends BaseResponse {
-
-        @JsonProperty("RandCode")
-        @NotBlank
-        @Size(max = 30)
-        String randCode;
+        // @todo FareDic
     }
 }
