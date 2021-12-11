@@ -46,16 +46,7 @@ public class ModelValidator {
         validateDate(segment.getFlightDate());
     }
 
-    private <T> void validateInternal(T request) {
-        Set<ConstraintViolation<T>> violations = _validator.validate(request);
-        for (ConstraintViolation<T> violation : violations) {
-            if (null != violation)
-                throw new IllegalArgumentException(String.format("%s: %s::%s", violation.getMessage(),
-                        violation.getLeafBean().getClass().getSimpleName(), violation.getPropertyPath().toString()));
-        }
-    }
-
-    private static void validateDate(String date) {
+    public static void validateDate(String date) {
         if (null == date) {
             throw new IllegalArgumentException("date should not be null.");
         }
@@ -73,7 +64,7 @@ public class ModelValidator {
         }
     }
 
-    private static void validateDateTime(String dateTime) {
+    public static void validateDateTime(String dateTime) {
         if (null == dateTime) {
             throw new IllegalArgumentException("dateTime should not be null.");
         }
@@ -83,6 +74,15 @@ public class ModelValidator {
         } catch (DateTimeParseException e) {
             throw new IllegalArgumentException(
                     String.format("dateTime string is not in YYYY-MM-DD HH:mm format: `%s`", dateTime), e);
+        }
+    }
+
+    private <T> void validateInternal(T request) {
+        Set<ConstraintViolation<T>> violations = _validator.validate(request);
+        for (ConstraintViolation<T> violation : violations) {
+            if (null != violation)
+                throw new IllegalArgumentException(String.format("%s: %s::%s", violation.getMessage(),
+                        violation.getLeafBean().getClass().getSimpleName(), violation.getPropertyPath().toString()));
         }
     }
 }
