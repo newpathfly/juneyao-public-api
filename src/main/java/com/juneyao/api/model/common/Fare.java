@@ -8,9 +8,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.juneyao.api.model.common.enums.PassengerType;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Fare {
 
     private Fare() {
@@ -31,7 +33,6 @@ public class Fare {
     String fareBasis;
 
     @JsonProperty("TourCode")
-    @NotBlank
     @Size(max = 20)
     String tourCode;
 
@@ -86,7 +87,7 @@ public class Fare {
 
     @JsonProperty("OtherTaxList")
     @Valid
-    List<InternalTaxInfo> otherTaxList;
+    List<InternatTaxInfo> otherTaxList;
 
     @JsonProperty("HandBaggage")
     @Size(max = 1000)

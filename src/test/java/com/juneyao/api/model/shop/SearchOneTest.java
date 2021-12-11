@@ -1,5 +1,6 @@
 package com.juneyao.api.model.shop;
 
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.ResolverStyle;
@@ -10,6 +11,7 @@ import com.juneyao.api.model.common.Segment;
 import com.juneyao.api.model.common.enums.FlightDirection;
 import com.juneyao.api.model.common.enums.RouteType;
 import com.juneyao.api.model.shop.SearchOne.FlightFareRequest;
+import com.juneyao.api.model.shop.SearchOne.FlightFareResponse;
 import com.juneyao.api.utils.ModelValidator;
 
 import org.junit.jupiter.api.Assertions;
@@ -41,8 +43,18 @@ class SearchOneTest {
         String json = OBJECT_MAPPER.writeValueAsString(expectedRequest);
 
         FlightFareRequest actualRequest = OBJECT_MAPPER.readValue(json, FlightFareRequest.class);
+        BASIC_REQUEST_VALIDATOR.validate(actualRequest);
 
         assertEquals(expectedRequest, actualRequest);
+    }
+
+    @Test
+    @SneakyThrows
+    void positiveTest_FlightFareResponse() {
+        InputStream inputStream = getClass().getResourceAsStream("/SampleSearchOneFlightFareResponse.json");
+
+        FlightFareResponse response = OBJECT_MAPPER.readValue(inputStream, FlightFareResponse.class);
+        BASIC_REQUEST_VALIDATOR.validate(response);
     }
 
     private static FlightFareRequest buildFlightFareRequest() {
@@ -86,10 +98,10 @@ class SearchOneTest {
     private static void assertEquals(Segment a, Segment b) {
         Assertions.assertEquals(a.getSegNO(), b.getSegNO());
         Assertions.assertEquals(a.getFlightDirection(), b.getFlightDirection());
-        
+
         Assertions.assertEquals(a.getDepCity(), b.getDepCity());
         Assertions.assertEquals(a.getArrCity(), b.getArrCity());
-        
+
         Assertions.assertEquals(a.getDepAirport(), b.getDepAirport());
         Assertions.assertEquals(a.getArrAirport(), b.getArrAirport());
 

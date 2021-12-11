@@ -45,8 +45,12 @@ public class SearchOne {
 
     @Getter
     @Setter
+    @NoArgsConstructor
     @SuperBuilder
     public static class FlightFareResponse extends BaseResponse {
+
+        @JsonProperty("countryCode")
+        String countryCode;
 
         @JsonProperty("LangCode")
         @NotBlank
