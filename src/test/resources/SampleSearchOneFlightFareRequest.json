@@ -1,0 +1,14 @@
+{
+  "ChannelCode": "TCOMBINE",
+  "RouteType": "OW",
+  "FareSource": "Searchone",
+  "SegCondList": [
+    {
+      "SegNO": 0,
+      "FlightDirection": "G",
+      "DepCity": "SHA",
+      "ArrCity": "HEL",
+      "FlightDate": "2021-12-18"
+    }
+  ]
+}
