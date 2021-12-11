@@ -29,10 +29,6 @@ class SearchOneTest {
             .ofPattern("uuuu-MM-dd")
             .withResolverStyle(ResolverStyle.STRICT);
 
-    private static final DateTimeFormatter DATETIME_FORMATTER = DateTimeFormatter
-            .ofPattern("uuuu-MM-dd HH:mm")
-            .withResolverStyle(ResolverStyle.STRICT);
-
     @Test
     @SneakyThrows
     void positiveTest_FlightFareRequest() {
