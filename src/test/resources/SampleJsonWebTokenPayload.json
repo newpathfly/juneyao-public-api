@@ -1,0 +1,24 @@
+{
+  "aud": [
+    "/Pay/**",
+    "/Order/TicketOrderChangeV20",
+    "/Refund/**",
+    "/Reserve/**",
+    "/Order/CalculateChangeFee",
+    "/Order/CancelOrder",
+    "/Order/GetTicketInfoByTktNo",
+    "/Order/TicketUpgradeV20",
+    "/Book/**",
+    "/Shop/**"
+  ],
+  "scope": [
+    "ALL"
+  ],
+  "exp": 1638583220,
+  "authorities": [
+    "ROLE_NORMAL",
+    "ROLE_ADMIN"
+  ],
+  "jti": "dfec5800-e48d-4ef0-97bd-cff84e541733",
+  "client_id": "2642111305"
+}
