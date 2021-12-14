@@ -11,6 +11,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
+import com.juneyao.api.model.Jwt;
 import com.juneyao.api.model.common.Segment;
 import com.juneyao.api.model.shop.SearchOne;
 
@@ -28,6 +29,10 @@ public class ModelValidator {
 
     public ModelValidator() {
         _validator = Validation.buildDefaultValidatorFactory().getValidator();
+    }
+
+    public void validate(Jwt.Payload payload) {
+        validateInternal(payload);
     }
 
     public void validate(SearchOne.FlightFareRequest request) {
