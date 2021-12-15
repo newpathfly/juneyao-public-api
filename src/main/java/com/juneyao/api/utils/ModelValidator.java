@@ -13,6 +13,7 @@ import javax.validation.Validator;
 
 import com.juneyao.api.model.common.Segment;
 import com.juneyao.api.model.oauth.Token;
+import com.juneyao.api.model.oauth.TokenResponse;
 import com.juneyao.api.model.shop.SearchOne;
 
 public class ModelValidator {
@@ -33,6 +34,10 @@ public class ModelValidator {
 
     public void validate(Token.Payload payload) {
         validateInternal(payload);
+    }
+
+    public void validate(TokenResponse response) {
+        validateInternal(response);
     }
 
     public void validate(SearchOne.FlightFareRequest request) {

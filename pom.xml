@@ -5,7 +5,7 @@
 
     <groupId>com.newpathfly</groupId>
     <artifactId>juneyao-public-api</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
 
     <name>juneyao-public-api</name>
     <description>Java binding for Juneyao public API</description>
