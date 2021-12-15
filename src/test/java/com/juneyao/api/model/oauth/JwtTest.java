@@ -1,4 +1,4 @@
-package com.juneyao.api.model;
+package com.juneyao.api.model.oauth;
 
 import java.io.InputStream;
 
@@ -20,7 +20,7 @@ class JwtTest {
     void positiveTest_JwtPayload() {
         InputStream inputStream = getClass().getResourceAsStream("/SampleJsonWebTokenPayload.json");
 
-        Jwt.Payload payload = OBJECT_MAPPER.readValue(inputStream, Jwt.Payload.class);
+        Token.Payload payload = OBJECT_MAPPER.readValue(inputStream, Token.Payload.class);
         BASIC_REQUEST_VALIDATOR.validate(payload);
     }
 }

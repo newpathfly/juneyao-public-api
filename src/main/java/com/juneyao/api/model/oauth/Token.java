@@ -1,4 +1,4 @@
-package com.juneyao.api.model;
+package com.juneyao.api.model.oauth;
 
 import java.util.List;
 
@@ -13,11 +13,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-public class Jwt {
+public class Token {
 
-    private Jwt() {
+    private Token() {
     }
 
+    /**
+     * Structure for the header part of {@link TokenResponse#accessToken} decoded by bas64
+     */
     @Setter
     @Getter
     @NoArgsConstructor
@@ -30,6 +33,9 @@ public class Jwt {
         String alg;
     }
 
+    /**
+     * Structure for the payload part of {@link TokenResponse#accessToken} decoded by bas64
+     */
     @Setter
     @Getter
     @NoArgsConstructor
