@@ -26,7 +26,6 @@ public class FlightInfoComb {
     List<FlightInfo> flightInfoList;
 
     @JsonProperty("CabinFareCombList")
-    @NotEmpty
     @Valid
     List<CabinFare> cabinFareCombList;
 
