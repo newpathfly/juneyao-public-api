@@ -13,6 +13,7 @@ import com.juneyao.api.model.common.FlightInfoComb;
 import com.juneyao.api.model.common.Segment;
 import com.juneyao.api.model.common.base.BaseRequest;
 import com.juneyao.api.model.common.base.BaseResponse;
+import com.juneyao.api.model.common.enums.QueryType;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,6 +42,9 @@ public class SearchOne {
         @JsonProperty("FareSource")
         @NotBlank
         String fareSource;
+
+        @JsonProperty("QueryType")
+        QueryType queryType;
     }
 
     @Getter
