@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
@@ -53,11 +52,9 @@ public class FlightInfo {
     String arrAirport;
 
     @JsonProperty("DepAirportName")
-    @NotBlank
     String depAirportName;
 
     @JsonProperty("ArrAirportName")
-    @NotBlank
     String arrAirportName;
 
     @JsonProperty("FlightNo")
@@ -76,7 +73,6 @@ public class FlightInfo {
     String arrDateTime;
 
     @JsonProperty("CodeShare")
-    @NotNull
     Boolean codeShare;
 
     @JsonProperty("CarrierNo")
@@ -90,16 +86,13 @@ public class FlightInfo {
     String fType;
 
     @JsonProperty("MealCode")
-    @NotBlank
     @Size(max = 1)
     String mealCode;
 
     @JsonProperty("ASR")
-    @NotNull
     Boolean asr;
 
     @JsonProperty("StopNumber")
-    @NotBlank
     @Size(max = 1)
     String stopNumber;
 
@@ -114,17 +107,14 @@ public class FlightInfo {
     String arrTerm;
 
     @JsonProperty("ETkt")
-    @NotNull
     Boolean etkt;
 
     @JsonProperty("CabinFareList")
-    @NotEmpty
     @Valid
     @Singular
     List<CabinFare> cabinFareList;
 
     @JsonProperty("CabinCHDINFFareList")
-    @NotEmpty
     @Valid
     @Singular
     List<CabinFare> cabinCHDINFFareList;

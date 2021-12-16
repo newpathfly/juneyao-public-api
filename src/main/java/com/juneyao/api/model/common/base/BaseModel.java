@@ -1,7 +1,6 @@
 package com.juneyao.api.model.common.base;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -24,6 +23,5 @@ public abstract class BaseModel {
     String channelCode;
 
     @JsonProperty("RouteType")
-    @NotNull
     RouteType routeType;
 }

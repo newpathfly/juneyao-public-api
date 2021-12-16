@@ -57,12 +57,10 @@ public class SearchOne {
         String countryCode;
 
         @JsonProperty("LangCode")
-        @NotBlank
         @Size(max = 3)
         String langCode;
 
         @JsonProperty("InterFlag")
-        @NotBlank
         @Size(max = 1)
         String interFlag;
 
@@ -83,7 +81,6 @@ public class SearchOne {
         List<FlightInfoComb> flightInfoCombList;
 
         @JsonProperty("FareDic")
-        @NotEmpty
         @Valid
         Map<String, Fare> fareDic;
     }
