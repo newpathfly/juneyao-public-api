@@ -6,11 +6,19 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class ChangeRuleInfo {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-    private ChangeRuleInfo() {
-    }
+@JsonIgnoreProperties(ignoreUnknown = true)
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class ChangeRuleInfo {
 
     @JsonProperty("FlightTimeCondition")
     String flightTimeCondition;

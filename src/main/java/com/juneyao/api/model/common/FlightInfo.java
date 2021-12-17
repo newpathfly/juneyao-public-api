@@ -12,12 +12,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.juneyao.api.model.common.enums.FlightDirection;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.Singular;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class FlightInfo {
-    
-    private FlightInfo() {}
 
     @JsonProperty("ID")
     String id;
@@ -111,12 +119,12 @@ public class FlightInfo {
 
     @JsonProperty("CabinFareList")
     @Valid
-    @Singular
+    @Singular("cabinFare")
     List<CabinFare> cabinFareList;
 
     @JsonProperty("CabinCHDINFFareList")
     @Valid
-    @Singular
+    @Singular("cabinCHDINFFare")
     List<CabinFare> cabinCHDINFFareList;
 
     @JsonProperty("TransferDuration")

@@ -20,7 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Segment {
-    
+
     @JsonProperty("SegNO")
     @NotNull
     @PositiveOrZero

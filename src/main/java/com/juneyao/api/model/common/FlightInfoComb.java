@@ -8,10 +8,18 @@ import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class FlightInfoComb {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-    private FlightInfoComb() {
-    }
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class FlightInfoComb {
 
     @JsonProperty("FlightRouteComb")
     @NotBlank
@@ -35,7 +43,7 @@ public class FlightInfoComb {
 
     @JsonProperty("TotalFlightTime")
     String totalFlightTime;
-    
+
     @JsonProperty("StopTime")
     String stopTime;
 }
