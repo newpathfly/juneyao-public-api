@@ -7,11 +7,19 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.juneyao.api.model.common.enums.PassengerType;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class FareTaxInfo {
-    
-    private FareTaxInfo() {
-    }
 
     @JsonProperty("PassengerType")
     @NotNull
